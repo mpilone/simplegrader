@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mpilone.simplegrader.controller.MainWindowController">
+   <top>
+      <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onFileOpenClicked" text="Open..." />
+              <MenuItem mnemonicParsing="false" onAction="#onFileSaveClicked" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#onFileSaveAsClicked" text="Save as..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" onAction="#onFileCloseClicked" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About..." />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <HBox spacing="5.0">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="catalogTable" prefHeight="150.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="catalogCategoryCol" prefWidth="100.0" text="Category" />
+                      <TableColumn fx:id="catalogCommentCol" prefWidth="350.0" text="Comment" />
+                        <TableColumn fx:id="catalogPointsCol" prefWidth="66.0" text="Points" />
+                    </columns>
+                  </TableView>
+                  <FlowPane alignment="CENTER_RIGHT" hgap="2.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="catalogNewBtn" mnemonicParsing="false" onAction="#onCatalogNewClicked" text="N">
+                           <tooltip>
+                              <Tooltip text="Add a new comment to the catalog." />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="catalogEditBtn" disable="true" mnemonicParsing="false" onAction="#onCatalogEditClicked" text="E" />
+                        <Button fx:id="catalogDeleteBtn" disable="true" mnemonicParsing="false" onAction="#onCatalogDeleteClicked" text="D" />
+                        <Separator focusTraversable="false" orientation="VERTICAL" />
+                        <Button fx:id="assignBtn" disable="true" mnemonicParsing="false" onAction="#onAssignClicked" text="A" />
+                     </children>
+                  </FlowPane>
+                  <Separator prefWidth="200.0" />
+                  <TableView fx:id="assignedTable" layoutX="10.0" layoutY="10.0" prefHeight="150.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="assignedCategoryCol" prefWidth="100.0" text="Category" />
+                        <TableColumn fx:id="assignedCommentCol" prefWidth="350.0" text="Comment" />
+                        <TableColumn fx:id="assignedPointsCol" prefWidth="75.0" text="Points" />
+                     </columns>
+                  </TableView>
+                  <FlowPane alignment="CENTER_RIGHT" hgap="2.0" layoutX="10.0" layoutY="153.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="assignedNewBtn" mnemonicParsing="false" onAction="#onAssignedNewClicked" text="N">
+                           <tooltip>
+                              <Tooltip text="Add a new comment to the catalog." />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="assignedEditBtn" disable="true" mnemonicParsing="false" text="E" />
+                        <Button fx:id="assignedDeleteBtn" disable="true" layoutX="533.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAssignedDeleteClicked" text="D" />
+                        <Button fx:id="resetBtn" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#onResetClicked" text="R">
+                           <tooltip>
+                              <Tooltip text="Reset assigned comments and grade." />
+                           </tooltip></Button>
+                     </children>
+                  </FlowPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" spacing="5.0">
+               <children>
+                  <TextArea fx:id="reportTxt" prefHeight="259.0" prefWidth="250.0" wrapText="true" VBox.vgrow="ALWAYS" />
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Points:" />
+                        <TextField fx:id="pointsTxt" prefWidth="50.0" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="gradeBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onGradeClicked" text="Grade" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
