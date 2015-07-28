@@ -1,16 +1,11 @@
 package org.mpilone.simplegrader.controller;
 
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import org.mpilone.simplegrader.domain.ReviewComment;
-import org.mpilone.simplegrader.util.ReportBuilder;
-import org.mpilone.simplegrader.util.ReviewCommentSerializer;
-
-import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +19,9 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import org.mpilone.simplegrader.domain.ReviewComment;
+import org.mpilone.simplegrader.util.ReportBuilder;
+import org.mpilone.simplegrader.util.ReviewCommentSerializer;
 
 /**
  * The controller for the main window of the application.
@@ -203,6 +201,20 @@ public class MainWindowController implements Initializable {
           getComment(), item.getPoints());
       assignedComments.add(assignedItem);
     });
+  }
+
+  /**
+   * The event handler for the assigned edit button.
+   *
+   * @param event the event details
+   */
+  @FXML
+  private void onAssignedEditClicked(ActionEvent event) {
+    // Get the item to edit.
+    ReviewComment item = assignedTable.getSelectionModel().
+        getSelectedItem();
+
+    showEditDialog("Edit Review Comment", item);
   }
 
   /**

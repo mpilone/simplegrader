@@ -71,7 +71,7 @@
                               <Tooltip text="Add a new comment to the catalog." />
                            </tooltip>
                         </Button>
-                        <Button fx:id="assignedEditBtn" disable="true" mnemonicParsing="false" text="E" />
+                        <Button fx:id="assignedEditBtn" disable="true" mnemonicParsing="false" onAction="#onAssignedEditClicked" text="E" />
                         <Button fx:id="assignedDeleteBtn" disable="true" layoutX="533.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAssignedDeleteClicked" text="D" />
                         <Button fx:id="resetBtn" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#onResetClicked" text="R">
                            <tooltip>
